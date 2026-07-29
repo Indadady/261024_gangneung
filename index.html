@@ -79,6 +79,59 @@
             table td, table th { word-break: keep-all; padding: 6px !important; }
             tr { page-break-inside: avoid; }
         }
+        
+        /* 투어메이커 표준 일정표(인쇄) 테이블용 */
+        .desc-list {
+            list-style: none;
+            margin: 8px 0;
+            padding-left: 5px;
+        }
+        .desc-list li {
+            position: relative;
+            padding-left: 14px;
+            margin-bottom: 6px;
+            line-height: 1.6;
+        }
+        .desc-list li::before {
+            content: '■';
+            font-size: 8px;
+            position: absolute;
+            left: 0;
+            top: 5px;
+            color: var(--tm);
+        }
+        .time-flow { margin-bottom: 8px; font-weight: 500; }
+        .time-tag {
+            display: inline-block;
+            color: var(--tm);
+            font-weight: 700;
+            margin-right: 6px;
+        }
+        .highlight { font-weight: 700; color: #0f172a; }
+        .meal-wrapper {
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+            justify-content: center;
+            height: 100%;
+            text-align: left;
+            padding-left: 5px;
+        }
+        .meal-simple {
+            display: flex;
+            align-items: flex-start;
+            font-size: 14px;
+            color: #1e293b;
+            line-height: 1.4;
+        }
+        .meal-simple strong {
+            color: var(--tm);
+            margin-right: 4px;
+            width: 22px;
+            flex-shrink: 0;
+        }
+        .meal-menu { flex: 1; }
+        .meal-sub { font-size: 13.5px; margin-top: 2px; color: #475569; }
     </style>
 </head>
 <body class="antialiased pb-20 md:pb-0">
@@ -513,7 +566,7 @@
 
     </div>
 
-    <div id="print-area">
+    <div id="print-area" class="flex flex-col h-[260mm]">
         <div class="border-b-4 border-black pb-3 mb-3 text-center">
             <div class="flex items-center justify-center gap-3 mb-2">
                 <img src="assets/images/logo-jeongseon.png" alt="정선군" style="height: 28px; width: auto; object-fit: contain;">
@@ -525,42 +578,44 @@
             <span>■ 대상: 정선군청 가족행복과 · 아동돌봄 관계자</span>
             <span>■ 형태: 당일 전세버스 · 숙박 없음</span>
         </div>
-        <table class="w-full border-collapse border-2 border-black text-[13px]" style="table-layout: fixed;">
-            <thead>
-                <tr class="bg-gray-200 text-center font-black h-10">
-                    <th class="border-2 border-black" style="width: 11%;">일자/시간</th>
-                    <th class="border-2 border-black" style="width: 75%;">상세 일정</th>
-                    <th class="border-2 border-black" style="width: 14%;">식사</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td class="border-2 border-black text-center font-black bg-gray-50 leading-relaxed align-top p-2">
-                        <span class="text-[14px]">당일<br>10/24(토)</span><br><br>
-                        <span class="font-bold text-xs">07:00출발<br>21:00도착</span>
-                    </td>
-                    <td class="border-2 border-black p-3 leading-relaxed align-top">
-                        <ul class="space-y-2 font-medium" style="list-style-type: none; padding-left: 0;">
-                            <li>■ 07:00 정선 출발 (읍사무소 앞)</li>
-                            <li><span class="font-black" style="color:#004098;">■ 08:30 정동진</span></li>
-                            <li><span class="font-black" style="color:#004098;">■ 10:00 아르떼뮤지엄 강릉</span></li>
-                            <li>■ 12:00 중식 (영덕대게횟집 · 회정식)</li>
-                            <li>■ 13:30 경포바다가 앞</li>
-                            <li><span class="font-black" style="color:#004098;">■ 14:30~16:30 김민섭 작가 인문학 강의 「당신이 잘되면 좋겠습니다」</span></li>
-                            <li>■ 17:00 발왕산 케이블카</li>
-                            <li>■ 18:30 석식 (진부 해천탕 산촌식당)</li>
-                            <li>■ 19:30 정선 귀환 출발 → 21:00 정선 도착 · 귀가</li>
-                        </ul>
-                    </td>
-                    <td class="border-2 border-black text-center font-bold align-middle">
-                        <div class="flex flex-col justify-center gap-4 py-4">
-                            <div><span class="bg-gray-200 px-2 py-0.5 rounded text-xs">중식</span><br>회정식</div>
-                            <div><span class="bg-gray-200 px-2 py-0.5 rounded text-xs">석식</span><br>산촌식당</div>
-                        </div>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
+        <div class="flex-grow flex flex-col">
+            <table class="w-full h-full border-collapse border-2 border-black text-[13px]" style="table-layout: fixed;">
+                <thead>
+                    <tr class="bg-gray-200 text-center font-black h-10">
+                        <th class="border-2 border-black" style="width: 11%;">일자/시간</th>
+                        <th class="border-2 border-black" style="width: 75%;">상세 일정</th>
+                        <th class="border-2 border-black" style="width: 14%;">식사</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="border-2 border-black text-center font-black bg-gray-50 leading-relaxed align-top">
+                            <span class="text-[14px]">당일<br>10/24(토)</span><br><br>
+                            <span class="font-bold text-xs">07:00출발<br>21:00도착</span>
+                        </td>
+                        <td class="border-2 border-black p-3 leading-relaxed align-top">
+                            <ul class="desc-list">
+                                <li><span class="time-tag">07:00</span>정선 출발 (읍사무소 앞)</li>
+                                <li><span class="time-tag">08:30</span><span class="highlight">정동진</span></li>
+                                <li><span class="time-tag">10:00</span><span class="highlight">아르떼뮤지엄 강릉</span></li>
+                                <li><span class="time-tag">12:00</span>중식 (영덕대게횟집 · 회정식)</li>
+                                <li><span class="time-tag">13:30</span><span class="highlight">경포바다가 앞</span> 산책</li>
+                                <li><span class="time-tag">14:30~16:30</span><span class="highlight">김민섭 작가 인문학 강의</span> 「당신이 잘되면 좋겠습니다」</li>
+                                <li><span class="time-tag">17:00</span>발왕산 케이블카</li>
+                                <li><span class="time-tag">18:30</span>석식 (진부 해천탕 산촌식당)</li>
+                                <li><span class="time-tag">19:30</span>정선 귀환 출발 → <span class="time-tag" style="margin-right:0;">21:00</span>도착 · 귀가</li>
+                            </ul>
+                        </td>
+                        <td class="border-2 border-black text-center font-bold align-middle">
+                            <div class="meal-wrapper">
+                                <div class="meal-simple"><strong>중:</strong><div class="meal-menu">회정식 (영덕대게횟집)</div></div>
+                                <div class="meal-simple"><strong>석:</strong><div class="meal-menu">산촌식당 (진부)</div></div>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
         <div class="mt-4 pt-2 flex flex-wrap justify-between items-center gap-2 text-xs font-bold text-slate-700 print-contacts">
             <span>대표 이재명 010-9443-7881</span>
             <span>현장 조혁 이사 010-4249-4026</span>
