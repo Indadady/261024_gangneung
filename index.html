@@ -72,30 +72,85 @@
         input:checked + span { text-decoration: line-through; color: #94a3b8; transition: all 0.3s ease; }
         @media screen { #print-area { display: none !important; } }
         @media print {
-            @page { size: A4 portrait; margin: 8mm; }
+            @page { size: A4 portrait; margin: 10mm; }
             body { background: white !important; margin: 0; padding: 0; -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; }
             .print\:hidden, header, footer, section:not(#print-area), .no-print, #toast { display: none !important; }
             #print-area {
                 display: flex !important;
                 flex-direction: column;
-                height: auto !important;
-                min-height: 0 !important;
+                box-sizing: border-box;
+                height: 277mm !important;
+                max-height: 277mm;
+                overflow: hidden;
                 page-break-inside: avoid;
                 page-break-after: avoid;
             }
-            #print-area .print-table-wrap { flex: 1 1 auto; min-height: 0; }
-            #print-area table { height: auto !important; }
+            #print-area > *:not(.print-table-wrap) { flex-shrink: 0; }
+            #print-area .print-table-wrap {
+                flex: 1 1 auto;
+                min-height: 0;
+                display: flex;
+                flex-direction: column;
+            }
+            #print-area table {
+                height: 100% !important;
+                width: 100%;
+            }
+            #print-area tbody,
+            #print-area tbody tr { height: 100%; }
             #print-area table td,
-            #print-area table th { word-break: keep-all; padding: 4px 6px !important; }
+            #print-area table th {
+                word-break: keep-all;
+                padding: 8px 10px !important;
+            }
             #print-area tr { page-break-inside: avoid; }
-            #print-area .desc-list { margin: 2px 0; }
-            #print-area .desc-list li { margin-bottom: 5px; line-height: 1.4; }
-            #print-area .time-note { font-size: 10.5px; line-height: 1.35; margin-top: 1px; }
-            #print-area .print-notes { margin-top: 6px; padding: 6px 8px; font-size: 10.5px; line-height: 1.4; }
-            #print-area .meal-wrapper { gap: 8px; padding: 4px 6px; }
-            #print-area .meal-simple { font-size: 11.5px; }
-            #print-area .meal-sub { font-size: 10.5px; }
-            #print-area .print-footer { margin-top: 4px; page-break-inside: avoid; }
+            #print-area .print-title { font-size: 22px !important; }
+            #print-area .print-meta { font-size: 12.5px !important; }
+            #print-area .print-audience { font-size: 13px !important; }
+            #print-area table { font-size: 14px !important; }
+            #print-area .desc-list {
+                display: flex;
+                flex-direction: column;
+                justify-content: space-evenly;
+                height: 100%;
+                margin: 0;
+                padding: 2px 0;
+            }
+            #print-area .desc-list li {
+                margin-bottom: 0;
+                line-height: 1.55;
+                padding-top: 3px;
+                padding-bottom: 3px;
+            }
+            #print-area .desc-list li::before { top: 8px; font-size: 9px; }
+            #print-area .time-tag { font-size: 14px; }
+            #print-area .time-note {
+                font-size: 12.5px;
+                line-height: 1.45;
+                margin-top: 3px;
+            }
+            #print-area .print-notes {
+                margin-top: 8px;
+                padding: 10px 12px;
+                font-size: 12.5px;
+                line-height: 1.55;
+            }
+            #print-area .meal-wrapper {
+                gap: 18px;
+                padding: 10px 8px;
+                justify-content: space-evenly;
+            }
+            #print-area .meal-simple { font-size: 13.5px; line-height: 1.45; }
+            #print-area .meal-sub { font-size: 12px; }
+            #print-area .print-footer {
+                margin-top: 8px;
+                padding-top: 6px;
+                font-size: 12px !important;
+                page-break-inside: avoid;
+            }
+            #print-area .print-side-date { font-size: 14px !important; }
+            #print-area .print-side-time { font-size: 12px !important; }
+            #print-area .print-side-route { font-size: 11.5px !important; }
         }
         
         /* 투어메이커 표준 일정표(인쇄) 테이블용 */
@@ -696,21 +751,21 @@
     </div>
 
     <div id="print-area" class="flex flex-col">
-        <div class="border-b-4 border-black pb-1 mb-1.5 text-center">
-            <div class="flex items-center justify-center gap-3 mb-0.5">
-                <img src="assets/images/logo-jeongseon.png" alt="정선군" style="height: 24px; width: auto; object-fit: contain;">
-                <h1 class="text-xl font-black mb-0 leading-tight">[가족행복과] 2026 강릉 당일행사 일정표</h1>
+        <div class="border-b-4 border-black pb-2 mb-2 text-center">
+            <div class="flex items-center justify-center gap-3 mb-1">
+                <img src="assets/images/logo-jeongseon.png" alt="정선군" style="height: 28px; width: auto; object-fit: contain;">
+                <h1 class="print-title text-2xl font-black mb-0 leading-tight">[가족행복과] 2026 강릉 당일행사 일정표</h1>
             </div>
-            <p class="text-xs text-gray-600 font-bold tracking-widest uppercase italic">2026. 10. 24 (토) | Gangneung Day Trip · 안내 초안</p>
+            <p class="print-meta text-sm text-gray-600 font-bold tracking-widest uppercase italic">2026. 10. 24 (토) | Gangneung Day Trip · 안내 초안</p>
         </div>
-        <div class="mb-1.5 flex justify-between text-[12px] font-bold px-1">
+        <div class="print-audience mb-2 flex justify-between text-[13px] font-bold px-1">
             <span>■ 대상: 정선군청 가족행복과 · 아동돌봄 관계자</span>
             <span>■ 형태: 당일 버스 · 숙박 없음</span>
         </div>
         <div class="print-table-wrap flex flex-col">
-            <table class="w-full border-collapse border-2 border-black text-[12.5px]" style="table-layout: fixed;">
+            <table class="w-full h-full border-collapse border-2 border-black text-[14px]" style="table-layout: fixed;">
                 <thead>
-                    <tr class="bg-gray-200 text-center font-black h-8">
+                    <tr class="bg-gray-200 text-center font-black h-10">
                         <th class="border-2 border-black" style="width: 10%;">일자/시간</th>
                         <th class="border-2 border-black" style="width: 68%;">상세 일정</th>
                         <th class="border-2 border-black" style="width: 22%;">식사·제공</th>
@@ -718,12 +773,12 @@
                 </thead>
                 <tbody>
                     <tr>
-                        <td class="border-2 border-black text-center font-black bg-gray-50 leading-relaxed align-top pt-3">
-                            <span class="text-[13px]">당일<br>10/24(토)</span><br><br>
-                            <span class="font-bold text-[11px]">07:00 출발<br>20:00 도착</span><br><br>
-                            <span class="font-bold text-[10px] text-slate-600 leading-snug">정선 ↔ 강릉<br>당일 왕복</span>
+                        <td class="border-2 border-black text-center font-black bg-gray-50 leading-relaxed align-middle">
+                            <span class="print-side-date">당일<br>10/24(토)</span><br><br>
+                            <span class="print-side-time font-bold">07:00 출발<br>20:00 도착</span><br><br>
+                            <span class="print-side-route font-bold text-slate-600 leading-snug">정선 ↔ 강릉<br>당일 왕복</span>
                         </td>
-                        <td class="border-2 border-black p-2 leading-relaxed align-top">
+                        <td class="border-2 border-black p-3 leading-relaxed align-top">
                             <ul class="desc-list">
                                 <li>
                                     <span class="time-tag">07:00</span><span class="highlight">정선 출발</span> (읍사무소 앞)
@@ -775,12 +830,12 @@
             <strong>■ 메인 베뉴</strong> 라카이 샌드파인(경포해변 앞) · 중식 후 같은 리조트 연회장에서 강의·간담회 연속 · 연회장(호해/해운)은 안내 시 확인<br>
             <strong>■ 프로그램</strong> 인문학 강의·간담회가 오후의 중심 · 간담회 중 라카이 카페 음료 1인 1메뉴 포함
         </div>
-        <div class="print-footer mt-1.5 pt-1 flex flex-wrap justify-between items-center gap-x-3 gap-y-1 text-[11px] font-bold text-slate-700 print-contacts border-t border-slate-300">
+        <div class="print-footer flex flex-wrap justify-between items-center gap-x-3 gap-y-1 text-xs font-bold text-slate-700 print-contacts border-t border-slate-300">
             <span>대표 이재명 010-9443-7881</span>
             <span>현장 조혁 이사 010-4249-4026</span>
             <span>가이드 · 기사 미정</span>
             <span class="flex items-center gap-2 font-bold text-gray-500">
-                <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgHfgIX70O5k6Anuo0UgALIdaG9jSga9auHu3uyz0uEirylGPAJnjN_qQbvEGMUvPqUQf_g9FMNUHRxlDcUBf4vZ3Mpy4TnA9WxbmzWYK11gt2zuy_Irl4wctNFjcjLyPo0GPXV792o_J7L9guRMuDfeC1gy7USwywjYbECZgzcsHybuGRRAXAnO1eNmP8/s320/logo.png" style="height: 16px;" alt="Tourmaker">
+                <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgHfgIX70O5k6Anuo0UgALIdaG9jSga9auHu3uyz0uEirylGPAJnjN_qQbvEGMUvPqUQf_g9FMNUHRxlDcUBf4vZ3Mpy4TnA9WxbmzWYK11gt2zuy_Irl4wctNFjcjLyPo0GPXV792o_J7L9guRMuDfeC1gy7USwywjYbECZgzcsHybuGRRAXAnO1eNmP8/s320/logo.png" style="height: 18px;" alt="Tourmaker">
                 ※ 상기 일정은 현지 사정에 의하여 변동될 수 있습니다.
             </span>
         </div>
