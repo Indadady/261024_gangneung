@@ -6,12 +6,13 @@
 | og-thumb.jpg | [Commons: File:Overlooking Jeongdongjin...](https://commons.wikimedia.org/wiki/File:Overlooking_Jeongdongjin,_South_Korea,_view_from_Sun_Cruise_Hotel_and_Resort.jpg) | CC / Wikimedia |
 | about.jpg | [Commons: File:Jeongdongjin Beach.jpg](https://commons.wikimedia.org/wiki/File:Jeongdongjin_Beach.jpg) | CC / Wikimedia |
 | day1-solhyang.jpg | [Commons: 솔향수목원 방문기](https://commons.wikimedia.org/wiki/File:2016%EB%85%84_5%EC%9B%94_22%EC%9D%BC_%EA%B0%95%EB%A6%89%EC%8B%9C_%EC%86%94%ED%96%A5%EC%88%98%EB%AA%A9%EC%9B%90_%EB%B0%A9%EB%AC%B8%EA%B8%B0_DSC00629.jpg) | CC / Wikimedia |
+| day1-haenabi.jpg | [Commons: File:Jumunjin Beach 20220501 035.jpg](https://commons.wikimedia.org/wiki/File:Jumunjin_Beach_20220501_035.jpg) | CC BY-SA 4.0 · 주문진 해변(센터 인근) |
+| day1-wolhwa.jpg | [Commons: File:Gangneung Jungang Market 20220501 002.jpg](https://commons.wikimedia.org/wiki/File:Gangneung_Jungang_Market_20220501_002.jpg) | CC BY-SA 4.0 |
 | day1-nanseolheon.jpg | [Commons: File:Nanseolheun park entrance.jpg](https://commons.wikimedia.org/wiki/File:Nanseolheun_park_entrance.jpg) | CC / Wikimedia |
+| day1-ojukheon.jpg | [Commons: File:Ojukheon 20220501 022.jpg](https://commons.wikimedia.org/wiki/File:Ojukheon_20220501_022.jpg) | CC BY-SA 4.0 |
 | day1-hoe.jpg | [Commons: File:Gyeongpo Beach 20220502 001.jpg](https://commons.wikimedia.org/wiki/File:Gyeongpo_Beach_20220502_001.jpg) | CC / Wikimedia |
-| hotel.jpg | [라카이 샌드파인 공식](https://www.lakaisandpine.co.kr/guide) `guide_01.jpg` (리조트·경포 해안 전경) | 공식 자료 (안내 목적 로컬 호스팅) |
-| day1-lakai.jpg | [라카이 샌드파인 공식](https://www.lakaisandpine.co.kr/dining) `dining_1.jpg` (LAKAI KITCHEN 등 다이닝) | 공식 자료 |
-| lakai-hohae.jpg | 공식 MICE `mice_third.JPG` (호해) | 공식 자료 |
-| lakai-haeun.jpg | 공식 MICE `mice_fourth.JPG` (해운) | 공식 자료 |
 | logo-jeongseon.png | 담당자 제공 (정선군 공식 로고) | 제공 자료 |
 
 `hero.jpg`(경포해변)와 `og-thumb.jpg`(정동진 조망)는 서로 다른 구도입니다.
+
+미사용(이전 라카이 안): `hotel.jpg`, `day1-lakai.jpg`, `lakai-hohae.jpg`, `lakai-haeun.jpg`
