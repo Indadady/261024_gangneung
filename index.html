@@ -13,9 +13,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>정선군청 가족행복과 강릉 가이드북</title>
-    <meta name="description" content="정선군청 가족행복과 강릉 당일행사 스마트 가이드북 — 안내 초안">
+    <meta name="description" content="정선군청 가족행복과 강릉 당일행사 스마트 가이드북 — 강릉시 평생학습관 소강당">
     <meta property="og:title" content="정선군청 가족행복과 강릉 가이드북">
-    <meta property="og:description" content="2026. 10. 24(토) 정선 출발 · 솔향수목원·해나비지역아동센터·인문학 강의 당일 여정 안내 초안">
+    <meta property="og:description" content="2026. 10. 24(토) 정선 출발 · 솔향수목원·해나비지역아동센터·강릉시 평생학습관 소강당 인문학 강의 당일 여정">
     <meta property="og:image" content="https://indadady.github.io/261024_gangneung/assets/images/og-thumb.jpg">
     <meta property="og:image:width" content="1920">
     <meta property="og:image:height" content="1272">
@@ -37,17 +37,76 @@
             background-size: cover; background-position: center; background-attachment: fixed; background-repeat: no-repeat;
         }
         @media (max-width: 768px){ .hero-bg { background-attachment: scroll; } }
+        #map-wrap { position: relative; }
         #map { height: 500px; width: 100%; border-radius: 1rem; box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1); z-index: 10; }
+        #map-leg {
+            position: absolute; top: 12px; left: 12px; z-index: 500; display: none;
+            background: rgba(255,255,255,.94); border-radius: 999px; padding: 6px 14px;
+            font-size: 12px; font-weight: 800; color: var(--tm);
+            box-shadow: 0 4px 12px rgba(15,23,42,.12); pointer-events: none; max-width: calc(100% - 24px);
+        }
         .no-scrollbar::-webkit-scrollbar { display: none; }
         .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
         .animate-fade-in-up { animation: fadeInUp 0.8s ease-out forwards; }
         @keyframes fadeInUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
         section { scroll-margin-top: 80px; }
-        @keyframes popIn {
-            0% { opacity: 0; transform: scale(0.5) translateY(20px); }
-            100% { opacity: 1; transform: scale(1) translateY(0); }
+        @keyframes floatIn {
+            from { opacity: 0; transform: scale(.8) translateY(16px); }
+            to { opacity: 1; transform: scale(1) translateY(0); }
         }
-        .custom-icon div { box-shadow: 0 4px 8px rgba(0,0,0,0.2); border: 2.5px solid white; }
+        .custom-icon { background: transparent; border: none; }
+        .map-pin-wrap { display: flex; flex-direction: column; align-items: center; }
+        .map-pin-dot {
+            width: 34px; height: 34px; border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 16px; color: #fff;
+            border: 2.5px solid rgba(255,255,255,0.95);
+            box-shadow: 0 10px 18px rgba(15,23,42,0.18);
+            animation: floatIn .2s ease-out forwards;
+        }
+        .map-pin-label {
+            margin-top: 3px;
+            background: rgba(255,255,255,0.96);
+            color: #0f172a;
+            font-size: 10px;
+            font-weight: 800;
+            letter-spacing: -0.04em;
+            line-height: 1.2;
+            padding: 2px 6px;
+            border-radius: 6px;
+            white-space: nowrap;
+            box-shadow: 0 2px 8px rgba(15,23,42,0.12);
+        }
+        .map-pin-badge {
+            position: absolute;
+            top: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #004098;
+            color: #fff;
+            font-size: 8px;
+            font-weight: 900;
+            letter-spacing: -0.04em;
+            line-height: 1.2;
+            padding: 2px 5px;
+            border-radius: 999px;
+            white-space: nowrap;
+        }
+        .traveler-icon { background: transparent !important; border: none !important; }
+        .map-bus {
+            font-size: 22px;
+            line-height: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            filter: drop-shadow(0 4px 8px rgba(15,23,42,0.35));
+        }
+        .traveler-rot, .traveler-flip {
+            display: inline-block;
+            transform-origin: 50% 50%;
+            line-height: 1;
+        }
+        @media (max-width: 768px) { #map { height: 460px; } }
         .schedule-thumb {
             display: block; width: 100%; max-width: 11rem; aspect-ratio: 4/3; object-fit: cover;
             border-radius: 0.75rem; border: 1px solid #e2e8f0; box-shadow: 0 4px 12px rgba(15,23,42,0.08); flex-shrink: 0;
@@ -290,7 +349,7 @@
             <div>
                 <p class="text-xl md:text-2xl text-white font-bold tracking-wide mb-2 opacity-90">2026. 10. 24 (토)</p>
                 <p class="text-sm md:text-base text-slate-200 font-medium tracking-widest uppercase opacity-80">Gangneung Day Trip</p>
-                <p class="mt-4 inline-block bg-white/15 border border-white/30 text-white text-xs font-bold px-4 py-1.5 rounded-full">안내 초안 · 세부 동선은 조율 중</p>
+                <p class="mt-4 inline-block bg-white/15 border border-white/30 text-white text-xs font-bold px-4 py-1.5 rounded-full">안내 초안 · 강의는 강릉시 평생학습관 소강당</p>
             </div>
         </div>
     </section>
@@ -317,7 +376,7 @@
                 <div class="bg-slate-50 p-8 rounded-[2rem] border border-slate-100 shadow-sm hover:shadow-xl hover:-translate-y-2 transition-all duration-300">
                     <div class="w-16 h-16 bg-violet-100 rounded-2xl flex items-center justify-center mb-6 text-4xl">📖</div>
                     <h3 class="text-2xl font-bold text-slate-800 mb-3 font-title">인문학 강의</h3>
-                    <p class="text-slate-600 text-sm leading-relaxed mb-4">김민섭 작가 인문학 강의(약 2시간)와 이어지는 간담회(약 1시간)로 오후의 중심을 채웁니다. 강의 장소는 안내 시 확인해 드립니다.</p>
+                    <p class="text-slate-600 text-sm leading-relaxed mb-4">김민섭 작가 인문학 강의(약 2시간)와 이어지는 간담회(약 1시간)로 오후의 중심을 채웁니다. 장소는 강릉시 평생학습관 소강당입니다.</p>
                     <span class="inline-block bg-violet-600 text-white text-xs px-3 py-1 rounded-full font-bold">강의·간담회</span>
                 </div>
             </div>
@@ -344,7 +403,7 @@
                         솔향수목원의 솔숲으로 오전을 열고, 주문진 해나비지역아동센터에서 현장의 돌봄을 둘러본 뒤 인문학 강의와 간담회로 오후를 이어갑니다. 아동 돌봄 현장에서 애쓰신 분들을 위한 재충전의 당일 여정입니다.
                     </p>
                     <p class="text-slate-600 leading-relaxed text-justify">
-                        기관방문 뒤 주문진남매식당에서 생선구이·대구탕으로 점심을 하고, 강의 후 간담회(약 1시간)를 진행합니다. 이후 월화시장·허난설헌공원·오죽헌 가운데 한 곳을 둘러보고, 영덕대게횟집 회정식으로 하루를 마무리한 뒤 정선으로 돌아옵니다. 강의 장소는 안내 시 확인해 드립니다. 본 일정은 안내 초안이며 현지 사정에 따라 조율될 수 있습니다.
+                        기관방문 뒤 주문진남매식당에서 생선구이·대구탕으로 점심을 하고, 강릉시 평생학습관 소강당에서 강의 후 간담회(약 1시간)를 진행합니다. 이후 월화시장·허난설헌공원·오죽헌 가운데 한 곳을 둘러보고, 영덕대게횟집 회정식으로 하루를 마무리한 뒤 정선으로 돌아옵니다. 본 일정은 안내 초안이며 현지 사정에 따라 조율될 수 있습니다.
                     </p>
                 </div>
             </div>
@@ -386,11 +445,13 @@
 
             <div class="mb-4">
                 <h3 class="text-xl md:text-2xl font-bold text-slate-800 font-title">인문학 강의 · 간담회</h3>
-                <p class="text-sm text-slate-500 mt-1">김민섭 작가 · 「당신이 잘되면 좋겠습니다」</p>
+                <p class="text-sm text-slate-500 mt-1">강릉시 평생학습관 소강당 · 김민섭 작가 · 「당신이 잘되면 좋겠습니다」</p>
             </div>
             <div class="bg-violet-50 border border-violet-100 rounded-2xl p-5 md:p-6 text-sm text-violet-950 leading-relaxed mb-12">
                 <p class="font-bold mb-2"><i class="fa-solid fa-book-open mr-1 text-violet-600"></i> 13:30~15:30 강의 · 15:30~16:30 간담회</p>
-                빔·음향이 있는 세미나형 공간에서 진행합니다. 강의 장소는 강사와 수배 중이며 안내 시 확인해 드립니다. 간담회 중 음료·다과를 제공합니다.
+                <p class="mb-3">강릉시 평생학습관 <strong>소강당</strong>에서 진행합니다. 빔·음향이 갖춰진 공간이며, 간담회 중 음료·다과를 제공합니다.</p>
+                <p><i class="fa-solid fa-location-dot mr-1 text-violet-600"></i> 강원특별자치도 강릉시 강릉대로 454 (포남동)</p>
+                <p class="mt-1"><i class="fa-solid fa-phone mr-1 text-violet-600"></i> <a href="tel:033-660-3292" class="font-bold underline decoration-violet-300 underline-offset-2">033-660-3292</a> · 예약 확정</p>
             </div>
 
             <div class="mb-4">
@@ -423,7 +484,7 @@
 
             <div class="bg-teal-50 border border-teal-100 rounded-2xl p-5 md:p-6 text-sm text-teal-900 leading-relaxed">
                 <i class="fa-solid fa-circle-info mr-1 text-teal-600"></i>
-                16:30 이후 방문지는 당일 동선·강의 장소에 맞춰 안내드립니다. 석식은 경포 영덕대게횟집(창해로 461) 회정식입니다.
+                16:30 이후 방문지는 평생학습관(포남동)에서 이어지는 당일 동선에 맞춰 안내드립니다. 석식은 경포 영덕대게횟집(창해로 461) 회정식입니다.
             </div>
         </div>
     </section>
@@ -444,7 +505,7 @@
                         <div class="w-12 h-12 bg-sky-100 text-sky-600 rounded-full flex items-center justify-center text-2xl"><i class="fa-solid fa-bus"></i></div>
                         <div>
                             <h3 class="font-black text-xl text-slate-800">버스 당일 왕복</h3>
-                            <p class="text-sm font-bold text-slate-500">정선 ↔ 강릉(솔향수목원·주문진 해나비·남매식당·경포) ↔ 정선</p>
+                            <p class="text-sm font-bold text-slate-500">정선 ↔ 강릉(솔향수목원·주문진 해나비·남매식당·평생학습관·경포) ↔ 정선</p>
                         </div>
                     </div>
                     <div class="grid md:grid-cols-2 gap-4">
@@ -472,7 +533,7 @@
         <div class="container mx-auto px-4">
             <div class="text-center mb-10">
                 <h2 class="text-3xl font-bold text-slate-800 font-title tracking-tight">한눈에 보는 여행 동선</h2>
-                <p class="text-slate-500 mt-2 text-sm italic">마커에 마우스를 올리면 장소명을 확인할 수 있습니다.</p>
+                <p class="text-slate-500 mt-2 text-sm italic">실제 도로를 따라 이동 순서가 천천히 그려집니다. 오전·오후·귀환을 누르면 해당 구간만 볼 수 있습니다.</p>
             </div>
             <div class="flex flex-wrap justify-center gap-2 mb-8">
                 <button onclick="filterMap('all')" id="btn-map-all" class="map-btn px-6 py-2 rounded-full text-sm font-bold bg-slate-800 text-white shadow-lg transition-all">전체 일정</button>
@@ -480,16 +541,15 @@
                 <button onclick="filterMap('day2')" id="btn-map-day2" class="map-btn px-6 py-2 rounded-full text-sm font-bold bg-white border border-slate-200 text-slate-600 hover:bg-blue-50 transition-all">오후</button>
                 <button onclick="filterMap('day3')" id="btn-map-day3" class="map-btn px-6 py-2 rounded-full text-sm font-bold bg-white border border-slate-200 text-slate-600 hover:bg-green-50 transition-all">귀환</button>
             </div>
-            <p id="map-hint" class="text-center text-xs text-slate-500 mb-4 font-medium">전체 일정 — 정선에서 출발해 귀환까지 동선이 차례로 그려집니다</p>
-            <div class="max-w-5xl mx-auto border-8 border-slate-100 rounded-[2.5rem] shadow-xl overflow-hidden bg-white relative z-10">
+            <p id="map-hint" class="text-center text-xs text-slate-500 mb-4 font-medium">전체 일정 — 정선에서 출발해 귀환까지 실제 도로 동선이 차례로 그려집니다</p>
+            <div id="map-wrap" class="max-w-5xl mx-auto border-8 border-slate-100 rounded-[2.5rem] shadow-xl overflow-hidden bg-white relative z-10">
                 <div id="map"></div>
-                <div class="absolute top-4 left-4 z-[400] bg-white/90 backdrop-blur px-3 py-1.5 rounded-xl shadow font-bold text-xs text-slate-700 pointer-events-none">
-                    <i class="fa-solid fa-map-location-dot text-orange-500 mr-1"></i> 동선 렌더링 중...
-                </div>
+                <div id="map-leg"></div>
             </div>
             <div class="max-w-5xl mx-auto mt-6 flex flex-wrap justify-center gap-6 text-[11px] font-bold text-slate-500">
                 <div class="flex items-center gap-1.5"><span class="w-3 h-3 rounded-full bg-[#f97316]"></span>오전(정선→솔향수목원→해나비·남매식당)</div>
-                <div class="flex items-center gap-1.5"><span class="w-3 h-3 rounded-full bg-[#3b82f6]"></span>오후(강의·택1 탐방→석식)</div>
+                <div class="flex items-center gap-1.5"><span class="w-3 h-3 rounded-full bg-[#3b82f6]"></span>오후(평생학습관 강의→석식)</div>
+                <div class="flex items-center gap-1.5"><span class="w-3 h-3 rounded-full bg-[#64748b]"></span>16:30 이후 택 1 (월화시장·허난설헌공원·오죽헌)</div>
                 <div class="flex items-center gap-1.5"><span class="w-3 h-3 rounded-full bg-[#22c55e]"></span>귀환(영덕대게횟집→정선)</div>
             </div>
         </div>
@@ -555,7 +615,7 @@
                             <div class="schedule-desc space-y-1">
                                 <p class="text-xs font-black text-violet-600 tracking-widest">13:30 ~ 15:30</p>
                                 <h4 class="font-bold text-lg text-slate-800">인문학 강의 · 김민섭 작가</h4>
-                                <p class="text-sm text-slate-500 leading-relaxed">「당신이 잘되면 좋겠습니다」 약 2시간. 강의 장소는 강사와 수배 중이며 안내 시 확인해 드립니다.</p>
+                                <p class="text-sm text-slate-500 leading-relaxed">강릉시 평생학습관 소강당(강릉대로 454). 「당신이 잘되면 좋겠습니다」 약 2시간. 문의 <a href="tel:033-660-3292" class="font-bold text-violet-700 underline">033-660-3292</a></p>
                             </div>
                         </div>
 
@@ -563,7 +623,7 @@
                             <div class="schedule-desc space-y-1">
                                 <p class="text-xs font-black text-rose-600 tracking-widest">15:30 ~ 16:30</p>
                                 <h4 class="font-bold text-lg text-slate-800">간담회</h4>
-                                <p class="text-sm text-slate-500 leading-relaxed">같은 공간에서 강의 소감 공유·현장 이야기 나눔을 약 1시간 진행합니다. 음료·다과를 제공합니다.</p>
+                                <p class="text-sm text-slate-500 leading-relaxed">평생학습관 소강당에서 강의 소감 공유·현장 이야기 나눔을 약 1시간 진행합니다. 음료·다과를 제공합니다.</p>
                             </div>
                         </div>
 
@@ -808,8 +868,8 @@
                                     <span class="time-note">작은다리길 31 · 생선구이 · 대구탕</span>
                                 </li>
                                 <li>
-                                    <span class="time-tag">13:30~15:30</span><span class="highlight">김민섭 작가 인문학 강의</span>
-                                    <span class="time-note">「당신이 잘되면 좋겠습니다」 약 2시간 · 장소는 강사와 수배 중</span>
+                                    <span class="time-tag">13:30~15:30</span><span class="highlight">김민섭 작가 인문학 강의</span> (평생학습관 소강당)
+                                    <span class="time-note">강릉시 평생학습관 소강당 · 강릉대로 454 · 033-660-3292</span>
                                 </li>
                                 <li>
                                     <span class="time-tag">15:30~16:30</span><span class="highlight">간담회</span>
@@ -841,9 +901,9 @@
             </table>
         </div>
         <div class="print-notes">
-            <strong>■ 동선 한눈에</strong> 정선 → 솔향수목원 → 해나비지역아동센터(주문진) → 남매식당(중식) → 인문학 강의·간담회 → 월화시장 또는 허난설헌공원 또는 오죽헌 → 영덕대게횟집 → 정선<br>
+            <strong>■ 동선 한눈에</strong> 정선 → 솔향수목원 → 해나비지역아동센터(주문진) → 남매식당(중식) → 강릉시 평생학습관 소강당(강의·간담회) → 월화시장 또는 허난설헌공원 또는 오죽헌 → 영덕대게횟집 → 정선<br>
             <strong>■ 기관방문</strong> 해나비지역아동센터 · 주문진읍 해안1길 14, 3층 · 11:00<br>
-            <strong>■ 프로그램</strong> 김민섭 작가 인문학 강의·간담회가 오후의 중심 · 강의 장소는 강사와 수배 중
+            <strong>■ 프로그램</strong> 김민섭 작가 인문학 강의·간담회 · 강릉시 평생학습관 소강당(강릉대로 454 · 033-660-3292)
         </div>
         <div class="print-footer flex flex-wrap justify-between items-center gap-x-3 gap-y-1 text-xs font-bold text-slate-700 print-contacts border-t border-slate-300">
             <span>대표 이재명 010-9443-7881</span>
@@ -966,209 +1026,332 @@
         }
         fetchWeather();
 
-        /* Map with animated routes */
         let mapInited = false;
-        let dayLayers = {};
         let currentMap = null;
-        let allSpots = {};
-        let routePaths = {};
-        let animToken = 0;
-        let travelerMarker = null;
+        let mapLayers = [];
+        let mapDrawSeq = 0;
+        let activeBus = null;
+        const osrmCache = {};
         const mapHints = {
-            all: '전체 일정 — 정선에서 출발해 귀환까지 동선이 차례로 그려집니다',
+            all: '전체 일정 — 정선에서 출발해 평생학습관을 거쳐 다시 정선으로 돌아오는 실제 도로 동선',
             day1: '오전 동선 — 정선 → 솔향수목원 → 해나비지역아동센터 → 주문진남매식당',
-            day2: '오후 동선 — 강의·간담회 후 월화시장·허난설헌공원·오죽헌 중 한 곳 → 석식',
+            day2: '오후 동선 — 남매식당 → 평생학습관 소강당 강의·간담회 후 택 1 탐방 → 영덕대게횟집',
             day3: '귀환 동선 — 영덕대게횟집 → 정선'
         };
+        const spots = {
+            jeongseon: { coords: [37.3806, 128.6609], title: '정선', color: '#f97316', icon: '🚌', badge: '08:30 출발' },
+            solhyang: { coords: [37.6958, 128.8631], title: '솔향수목원', color: '#f97316', icon: '🌲' },
+            haenabi: { coords: [37.8912, 128.8288], title: '해나비센터', color: '#f97316', icon: '🏫' },
+            nammae: { coords: [37.8898, 128.8268], title: '남매식당', color: '#f97316', icon: '🍚' },
+            lecture: { coords: [37.7732, 128.9132], title: '평생학습관', color: '#3b82f6', icon: '📖', badge: '강의·간담회' },
+            wolhwa: { coords: [37.7538, 128.8972], title: '월화시장', color: '#64748b', icon: '🛒', badge: '택 1' },
+            nanseolheon: { coords: [37.7910, 128.9140], title: '허난설헌공원', color: '#64748b', icon: '📜', badge: '택 1' },
+            ojukheon: { coords: [37.7792, 128.8778], title: '오죽헌', color: '#64748b', icon: '🏠', badge: '택 1' },
+            hoe: { coords: [37.8020, 128.9115], title: '영덕대게횟집', color: '#3b82f6', icon: '🍽️', badge: '석식' }
+        };
+        const routes = {
+            all: {
+                points: ['jeongseon', 'solhyang', 'haenabi', 'nammae', 'lecture', 'wolhwa', 'nanseolheon', 'ojukheon', 'hoe'],
+                maxZoom: 9,
+                lines: [
+                    { pts: ['jeongseon', 'solhyang', 'haenabi', 'nammae'], color: '#f97316' },
+                    { pts: ['nammae', 'lecture', 'hoe'], color: '#3b82f6' },
+                    { pts: ['hoe', 'jeongseon'], color: '#22c55e' }
+                ],
+                extrasAfter: { lecture: ['wolhwa', 'nanseolheon', 'ojukheon'] }
+            },
+            day1: {
+                points: ['jeongseon', 'solhyang', 'haenabi', 'nammae'],
+                maxZoom: 10,
+                lines: [{ pts: ['jeongseon', 'solhyang', 'haenabi', 'nammae'], color: '#f97316' }]
+            },
+            day2: {
+                points: ['nammae', 'lecture', 'wolhwa', 'nanseolheon', 'ojukheon', 'hoe'],
+                maxZoom: 12,
+                lines: [{ pts: ['nammae', 'lecture', 'hoe'], color: '#3b82f6' }],
+                extrasAfter: { lecture: ['wolhwa', 'nanseolheon', 'ojukheon'] }
+            },
+            day3: {
+                points: ['hoe', 'jeongseon'],
+                maxZoom: 9,
+                lines: [{ pts: ['hoe', 'jeongseon'], color: '#22c55e' }]
+            }
+        };
 
-        function initMap() {
-            if (mapInited || !window.L) return;
-            mapInited = true;
-            const spots = {
-                jeongseon: [37.3806, 128.6609],
-                solhyang: [37.6958, 128.8631],
-                haenabi: [37.8912, 128.8288],
-                nammae: [37.8898, 128.8268],
-                wolhwa: [37.7538, 128.8972],
-                nanseolheon: [37.7910, 128.9140],
-                ojukheon: [37.7792, 128.8778],
-                hoe: [37.8020, 128.9115]
-            };
-            allSpots = spots;
-            currentMap = L.map('map', { scrollWheelZoom: false });
-            L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png').addTo(currentMap);
-
-            const createIcon = (color, emoji, idx) => L.divIcon({
+        function isMobileView() {
+            return window.matchMedia('(max-width: 768px)').matches;
+        }
+        function setMapLeg(fromT, toT) {
+            const el = document.getElementById('map-leg');
+            if (!el) return;
+            if (!fromT) { el.style.display = 'none'; return; }
+            el.style.display = 'block';
+            el.textContent = toT ? `${fromT} → ${toT}` : fromT;
+        }
+        function pinIcon(spot) {
+            return L.divIcon({
                 className: 'custom-icon',
-                html: `<div style="background-color:${color}; width:36px; height:36px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:18px; opacity:0; animation:popIn 0.5s forwards; animation-delay:${idx * 0.15}s;">${emoji}</div>`,
-                iconSize: [36, 36], iconAnchor: [18, 18], tooltipAnchor: [0, -18]
+                html: `<div class="map-pin-wrap">
+                    <div class="map-pin-dot" style="background:${spot.color};position:relative;">${spot.icon}${spot.badge ? `<span class="map-pin-badge">${spot.badge}</span>` : ''}</div>
+                    <span class="map-pin-label">${spot.title}</span>
+                </div>`,
+                iconSize: [96, 56],
+                iconAnchor: [48, 18]
             });
-
-            const markers = {
-                js: L.marker(spots.jeongseon, { icon: createIcon('#f97316', '🚌', 1) }).bindTooltip('정선 (출발·도착)', { direction: 'top' }),
-                sh: L.marker(spots.solhyang, { icon: createIcon('#f97316', '🌲', 2) }).bindTooltip('솔향수목원', { direction: 'top' }),
-                hb: L.marker(spots.haenabi, { icon: createIcon('#f97316', '🏫', 3) }).bindTooltip('해나비지역아동센터', { direction: 'top' }),
-                nm: L.marker(spots.nammae, { icon: createIcon('#f97316', '🍚', 4) }).bindTooltip('주문진남매식당 (중식)', { direction: 'top' }),
-                wh: L.marker(spots.wolhwa, { icon: createIcon('#3b82f6', '🛒', 1) }).bindTooltip('월화시장 (택 1)', { direction: 'top' }),
-                ns: L.marker(spots.nanseolheon, { icon: createIcon('#3b82f6', '📜', 2) }).bindTooltip('허난설헌공원 (택 1)', { direction: 'top' }),
-                oj: L.marker(spots.ojukheon, { icon: createIcon('#3b82f6', '🏠', 3) }).bindTooltip('오죽헌 (택 1)', { direction: 'top' }),
-                ho: L.marker(spots.hoe, { icon: createIcon('#3b82f6', '🍽️', 4) }).bindTooltip('영덕대게횟집', { direction: 'top' })
-            };
-
-            routePaths = {
-                d1: L.polyline([spots.jeongseon, spots.solhyang, spots.haenabi, spots.nammae], { color: '#f97316', weight: 5, opacity: 0.85 }),
-                d2: L.polyline([spots.nammae, spots.wolhwa, spots.hoe], { color: '#3b82f6', weight: 5, opacity: 0.85 }),
-                d3: L.polyline([spots.hoe, spots.jeongseon], { color: '#22c55e', weight: 5, opacity: 0.85 })
-            };
-
-            dayLayers = {
-                day1: L.layerGroup([routePaths.d1, markers.js, markers.sh, markers.hb, markers.nm]),
-                day2: L.layerGroup([routePaths.d2, markers.nm, markers.wh, markers.ns, markers.oj, markers.ho]),
-                day3: L.layerGroup([routePaths.d3, markers.ho, markers.js])
-            };
-            filterMap('all');
         }
-
-        function clearTraveler() {
-            if (travelerMarker && currentMap) {
-                currentMap.removeLayer(travelerMarker);
-                travelerMarker = null;
-            }
+        function busIcon() {
+            return L.divIcon({
+                className: 'custom-icon traveler-icon',
+                html: '<div class="map-bus"><span class="traveler-rot"><span class="traveler-flip">🚌</span></span></div>',
+                iconSize: [36, 36],
+                iconAnchor: [18, 18]
+            });
         }
-        function latLngAlong(latlngs, t) {
-            if (!latlngs.length) return null;
-            if (t <= 0) return L.latLng(latlngs[0]);
-            if (t >= 1) return L.latLng(latlngs[latlngs.length - 1]);
-            let total = 0; const segs = [];
-            for (let i = 0; i < latlngs.length - 1; i++) {
-                const a = L.latLng(latlngs[i]); const b = L.latLng(latlngs[i + 1]);
-                const d = a.distanceTo(b); segs.push({ a, b, d }); total += d;
+        function bearingDeg(a, b) {
+            const lat1 = (a.lat ?? a[0]) * Math.PI / 180;
+            const lat2 = (b.lat ?? b[0]) * Math.PI / 180;
+            const dLng = ((b.lng ?? b[1]) - (a.lng ?? a[1])) * Math.PI / 180;
+            const y = Math.sin(dLng) * Math.cos(lat2);
+            const x = Math.cos(lat1) * Math.sin(lat2) - Math.sin(lat1) * Math.cos(lat2) * Math.cos(dLng);
+            return (Math.atan2(y, x) * 180 / Math.PI + 360) % 360;
+        }
+        function headingParts(bearing) {
+            const nose = 270;
+            let rot = ((bearing - nose + 540) % 360) - 180;
+            let flip = 1;
+            if (Math.abs(rot) > 90) {
+                flip = -1;
+                rot += rot > 0 ? -180 : 180;
             }
-            let remain = total * t;
-            for (const s of segs) {
-                if (remain <= s.d || s.d === 0) {
-                    const r = s.d ? remain / s.d : 0;
-                    return L.latLng(s.a.lat + (s.b.lat - s.a.lat) * r, s.a.lng + (s.b.lng - s.a.lng) * r);
+            return { rot, flip };
+        }
+        function applyBusHeading(marker, a, b) {
+            if (!a || !b) return;
+            const { rot, flip } = headingParts(bearingDeg(a, b));
+            const el = marker.getElement();
+            const wrap = el && el.querySelector('.traveler-rot');
+            const span = el && el.querySelector('.traveler-flip');
+            if (wrap) wrap.style.transform = `rotate(${rot}deg)`;
+            if (span) span.style.transform = `scaleX(${flip})`;
+        }
+        function clearMapLayers() {
+            if (activeBus) activeBus._aborted = true;
+            activeBus = null;
+            mapLayers.forEach(layer => {
+                if (layer._aborted !== undefined) layer._aborted = true;
+                currentMap.removeLayer(layer);
+            });
+            mapLayers = [];
+        }
+        async function roadPath(pts) {
+            const key = pts.map(p => p.join(',')).join('|');
+            if (osrmCache[key]) return osrmCache[key];
+            try {
+                const coords = pts.map(p => `${p[1]},${p[0]}`).join(';');
+                const res = await fetch(`https://router.project-osrm.org/route/v1/driving/${coords}?overview=full&geometries=geojson`);
+                const data = await res.json();
+                if (data.code === 'Ok' && data.routes && data.routes[0]) {
+                    const path = data.routes[0].geometry.coordinates.map(([lng, lat]) => [lat, lng]);
+                    osrmCache[key] = path;
+                    return path;
                 }
-                remain -= s.d;
-            }
-            return L.latLng(latlngs[latlngs.length - 1]);
+            } catch (e) { /* 직선 fallback */ }
+            return pts;
         }
-        function animateTraveler(latlngs, duration, token, color) {
+        function lineDuration(pixelLength, routeKey) {
+            const mobile = isMobileView();
+            const allView = routeKey === 'all';
+            const min = mobile ? (allView ? 1800 : 2800) : (allView ? 1000 : 1400);
+            const max = mobile ? (allView ? 3200 : 5600) : (allView ? 1800 : 2800);
+            const pxPerMs = mobile ? (allView ? 0.2 : 0.12) : 0.28;
+            return Math.max(min, Math.min(max, pixelLength / pxPerMs));
+        }
+        function whenPathReady(polyline) {
             return new Promise(resolve => {
-                if (!latlngs || latlngs.length < 2) { resolve(); return; }
-                clearTraveler();
-                travelerMarker = L.circleMarker(L.latLng(latlngs[0]), {
-                    radius: 8, color: '#fff', weight: 3, fillColor: color || '#f97316', fillOpacity: 1
-                }).addTo(currentMap);
-                const t0 = performance.now();
+                let tries = 24;
+                const tick = () => {
+                    const el = polyline.getElement();
+                    if (el && typeof el.getTotalLength === 'function') resolve(el);
+                    else if (tries-- > 0) requestAnimationFrame(tick);
+                    else resolve(null);
+                };
+                requestAnimationFrame(tick);
+            });
+        }
+        function animateLine(polyline, duration) {
+            return new Promise(async resolve => {
+                const path = await whenPathReady(polyline);
+                if (!path) { resolve(duration); return; }
+                const length = path.getTotalLength();
+                const ms = duration || 1400;
+                path.style.transition = 'none';
+                path.style.strokeDasharray = length + ' ' + length;
+                path.style.strokeDashoffset = String(length);
+                path.getBoundingClientRect();
+                path.style.transition = `stroke-dashoffset ${ms}ms ease-in-out`;
+                path.style.strokeDashoffset = '0';
+                setTimeout(() => resolve(ms), ms + 40);
+            });
+        }
+        function pointAlong(latlngs, dists, total, dist) {
+            if (dist <= 0) return latlngs[0];
+            if (dist >= total) return latlngs[latlngs.length - 1];
+            let i = 1;
+            while (i < dists.length && dists[i] < dist) i++;
+            const a = latlngs[i - 1];
+            const b = latlngs[Math.min(i, latlngs.length - 1)];
+            const span = (dists[i] - dists[i - 1]) || 1;
+            const f = (dist - dists[i - 1]) / span;
+            return [a[0] + (b[0] - a[0]) * f, a[1] + (b[1] - a[1]) * f];
+        }
+        function moveMarkerAlong(marker, latlngs, duration) {
+            return new Promise(resolve => {
+                if (!marker || !latlngs || latlngs.length < 2) { resolve(); return; }
+                const dists = [0];
+                let total = 0;
+                for (let i = 1; i < latlngs.length; i++) {
+                    total += L.latLng(latlngs[i - 1]).distanceTo(L.latLng(latlngs[i]));
+                    dists.push(total);
+                }
+                if (total === 0) { resolve(); return; }
+                const start = performance.now();
+                const ease = t => t < 0.5 ? 2 * t * t : 1 - Math.pow(-2 * t + 2, 2) / 2;
                 function frame(now) {
-                    if (token !== animToken) { clearTraveler(); resolve(); return; }
-                    const p = Math.min(1, (now - t0) / duration);
-                    const eased = p < 0.5 ? 2 * p * p : 1 - Math.pow(-2 * p + 2, 2) / 2;
-                    const ll = latLngAlong(latlngs, eased);
-                    if (ll) travelerMarker.setLatLng(ll);
-                    if (p < 1) requestAnimationFrame(frame); else resolve();
+                    if (marker._aborted) { resolve(); return; }
+                    const t = Math.min(1, (now - start) / duration);
+                    const eased = ease(t);
+                    const here = pointAlong(latlngs, dists, total, total * eased);
+                    const ahead = pointAlong(latlngs, dists, total, total * Math.min(1, eased + 0.03));
+                    const behind = pointAlong(latlngs, dists, total, total * Math.max(0, eased - 0.015));
+                    marker.setLatLng(here);
+                    applyBusHeading(marker, behind, ahead);
+                    if (t < 1) requestAnimationFrame(frame);
+                    else resolve();
                 }
                 requestAnimationFrame(frame);
             });
         }
-        function animatePath(layer, duration, token) {
-            return new Promise(resolve => {
-                const run = () => {
-                    if (token !== animToken) { resolve(); return; }
-                    const path = layer._path;
-                    if (!path) { resolve(); return; }
-                    const len = path.getTotalLength();
-                    path.style.transition = 'none';
-                    path.style.strokeDasharray = `${len}`;
-                    path.style.strokeDashoffset = `${len}`;
-                    void path.getBoundingClientRect();
-                    path.style.transition = `stroke-dashoffset ${duration}ms cubic-bezier(0.4, 0, 0.2, 1)`;
-                    path.style.strokeDashoffset = '0';
-                    setTimeout(() => {
-                        if (token === animToken) {
-                            path.style.transition = '';
-                            path.style.strokeDasharray = '';
-                            path.style.strokeDashoffset = '';
-                        }
-                        resolve();
-                    }, duration + 40);
-                };
-                requestAnimationFrame(() => setTimeout(run, 40));
+
+        async function drawMap(routeKey) {
+            if (!currentMap) return;
+            const seq = ++mapDrawSeq;
+            clearMapLayers();
+            const routeData = routes[routeKey] || routes.all;
+            const hint = mapHints[routeKey] || '';
+            const hintEl = document.getElementById('map-hint');
+            if (hintEl) hintEl.textContent = hint;
+            setMapLeg('실제 도로 동선을 불러오는 중...');
+
+            const bounds = L.latLngBounds(routeData.points.map(key => spots[key].coords));
+            currentMap.fitBounds(bounds, { padding: [56, 56], maxZoom: routeData.maxZoom || 11 });
+            setTimeout(() => currentMap.invalidateSize(), 120);
+
+            const legs = [];
+            routeData.lines.forEach(lineDef => {
+                for (let i = 0; i < lineDef.pts.length - 1; i++) {
+                    legs.push({ from: lineDef.pts[i], to: lineDef.pts[i + 1], color: lineDef.color });
+                }
             });
-        }
-        async function playRouteAnimation(keys, token) {
-            for (const key of keys) {
-                if (token !== animToken) return;
-                const layer = routePaths[key];
-                if (!layer) continue;
-                const latlngs = layer.getLatLngs().map(ll => [ll.lat, ll.lng]);
-                const duration = key === 'd1' ? 2800 : key === 'd2' ? 2000 : 2200;
-                const color = key === 'd1' ? '#f97316' : key === 'd2' ? '#3b82f6' : '#22c55e';
+            const paths = await Promise.all(legs.map(leg => roadPath([spots[leg.from].coords, spots[leg.to].coords])));
+            if (seq !== mapDrawSeq) return;
+
+            paths.forEach(path => path.forEach(pt => bounds.extend(pt)));
+            currentMap.fitBounds(bounds, { padding: [56, 56], maxZoom: routeData.maxZoom || 11 });
+            await new Promise(r => setTimeout(r, 280));
+            if (seq !== mapDrawSeq) return;
+
+            const ghost = L.polyline(paths.flat(), { color: '#94a3b8', weight: 4, opacity: 0.22, lineJoin: 'round', lineCap: 'round' }).addTo(currentMap);
+            mapLayers.push(ghost);
+
+            const placed = new Set();
+            const addPin = (key) => {
+                if (placed.has(key)) return;
+                placed.add(key);
+                const spot = spots[key];
+                const marker = L.marker(spot.coords, { icon: pinIcon(spot), zIndexOffset: 200 })
+                    .addTo(currentMap)
+                    .bindTooltip(spot.title, { direction: 'top', offset: [0, -18] });
+                mapLayers.push(marker);
+            };
+            addPin(legs[0].from);
+
+            const bus = L.marker(spots[legs[0].from].coords, { icon: busIcon(), zIndexOffset: 900 }).addTo(currentMap);
+            bus._aborted = false;
+            activeBus = bus;
+            mapLayers.push(bus);
+            if (paths[0] && paths[0].length > 1) applyBusHeading(bus, paths[0][0], paths[0][1]);
+
+            for (let i = 0; i < legs.length; i++) {
+                if (seq !== mapDrawSeq) return;
+                const leg = legs[i];
+                const path = paths[i];
+                setMapLeg(spots[leg.from].title, spots[leg.to].title);
+                const poly = L.polyline(path, { color: leg.color, weight: 5, opacity: 0.95, lineJoin: 'round', lineCap: 'round' }).addTo(currentMap);
+                mapLayers.push(poly);
+                const ready = await whenPathReady(poly);
+                const ms = lineDuration(ready ? ready.getTotalLength() : 400, routeKey);
                 await Promise.all([
-                    animatePath(layer, duration, token),
-                    animateTraveler(latlngs, duration, token, color)
+                    animateLine(poly, ms),
+                    moveMarkerAlong(bus, path, ms)
                 ]);
+                if (seq !== mapDrawSeq) return;
+                addPin(leg.to);
+                (routeData.extrasAfter && routeData.extrasAfter[leg.to] || []).forEach(addPin);
+                await new Promise(r => setTimeout(r, isMobileView() ? 280 : 140));
             }
-            if (token === animToken) setTimeout(clearTraveler, 400);
+            if (seq !== mapDrawSeq) return;
+            setMapLeg();
+            if (bus && currentMap.hasLayer(bus)) currentMap.removeLayer(bus);
+            mapLayers = mapLayers.filter(layer => layer !== bus);
+            if (activeBus === bus) activeBus = null;
+            setTimeout(() => currentMap.invalidateSize(), 160);
         }
-        function popMarkers(layerGroup, token) {
-            layerGroup.eachLayer(layer => {
-                if (!(layer instanceof L.Marker)) return;
-                const originalIcon = layer.options.icon;
-                layer.setIcon(L.divIcon({ className: 'hidden' }));
-                setTimeout(() => { if (token === animToken) layer.setIcon(originalIcon); }, 50);
-            });
+
+        function initMap(initialKey) {
+            if (mapInited || !window.L) return;
+            mapInited = true;
+            currentMap = L.map('map', { scrollWheelZoom: false });
+            L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Street_Map/MapServer/tile/{z}/{y}/{x}', {
+                maxZoom: 19,
+                attribution: 'Tiles &copy; Esri'
+            }).addTo(currentMap);
+            const startKey = initialKey || (isMobileView() ? 'day1' : 'all');
+            if (isMobileView() && !initialKey) {
+                document.querySelectorAll('.map-btn').forEach(btn => {
+                    btn.classList.remove('bg-slate-800', 'text-white');
+                    btn.classList.add('bg-white', 'text-slate-600');
+                });
+                const morning = document.getElementById('btn-map-day1');
+                if (morning) {
+                    morning.classList.remove('bg-white', 'text-slate-600');
+                    morning.classList.add('bg-slate-800', 'text-white');
+                }
+            }
+            drawMap(startKey);
         }
 
         window.filterMap = function (day) {
-            if (!currentMap) return;
-            animToken += 1;
-            const token = animToken;
-            clearTraveler();
             document.querySelectorAll('.map-btn').forEach(btn => {
                 btn.classList.remove('bg-slate-800', 'text-white');
                 btn.classList.add('bg-white', 'text-slate-600');
             });
-            const activeBtn = document.getElementById('btn-map-' + day);
-            if (activeBtn) {
-                activeBtn.classList.replace('bg-white', 'bg-slate-800');
-                activeBtn.classList.replace('text-slate-600', 'text-white');
+            const targetBtn = document.getElementById('btn-map-' + day);
+            if (targetBtn) {
+                targetBtn.classList.remove('bg-white', 'text-slate-600');
+                targetBtn.classList.add('bg-slate-800', 'text-white');
             }
-            const hint = document.getElementById('map-hint');
-            if (hint) hint.textContent = mapHints[day] || '';
-            Object.values(dayLayers).forEach(l => currentMap.removeLayer(l));
-
-            let targetBounds; let keys = [];
-            if (day === 'all') {
-                Object.values(dayLayers).forEach(l => l.addTo(currentMap));
-                targetBounds = L.latLngBounds(Object.values(allSpots));
-                keys = ['d1', 'd2', 'd3'];
-                Object.values(dayLayers).forEach(l => popMarkers(l, token));
-            } else {
-                dayLayers[day].addTo(currentMap);
-                targetBounds = dayLayers[day].getBounds ? dayLayers[day].getBounds() : L.latLngBounds(Object.values(allSpots));
-                keys = [day === 'day1' ? 'd1' : day === 'day2' ? 'd2' : 'd3'];
-                popMarkers(dayLayers[day], token);
+            if (!currentMap) {
+                initMap(day);
+                return;
             }
-            currentMap.fitBounds(targetBounds, { padding: [50, 50], maxZoom: day === 'all' ? 8 : 11 });
-            keys.forEach(k => {
-                const el = routePaths[k] && routePaths[k]._path;
-                if (el) {
-                    const len = el.getTotalLength ? el.getTotalLength() : 1000;
-                    el.style.transition = 'none';
-                    el.style.strokeDasharray = `${len}`;
-                    el.style.strokeDashoffset = `${len}`;
-                }
-            });
-            setTimeout(() => playRouteAnimation(keys, token), 280);
+            drawMap(day);
         };
 
         const io = new IntersectionObserver((entries) => {
             if (entries[0].isIntersecting) { initMap(); io.disconnect(); }
         }, { threshold: 0.1 });
-        io.observe(document.getElementById('map-section'));
+        const mapSection = document.getElementById('map-section');
+        if (mapSection) io.observe(mapSection);
     </script>
 </body>
 </html>
