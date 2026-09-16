@@ -333,6 +333,19 @@
         </nav>
     </header>
 
+    <div id="event-day-bar" class="hidden sticky top-16 z-40 bg-white/95 backdrop-blur-md border-b border-sky-100 shadow-sm">
+        <div class="container mx-auto px-4 py-2.5">
+            <div class="grid grid-cols-2 gap-2 max-w-lg mx-auto">
+                <button type="button" onclick="goToTodaySchedule()" class="flex items-center justify-center gap-2 px-4 py-3 rounded-2xl border-2 border-[#004098] bg-[#004098] text-white font-bold text-sm shadow-sm active:scale-95 transition">
+                    <i class="fa-solid fa-calendar-day"></i> 오늘의 일정
+                </button>
+                <button type="button" onclick="goToTodayRoute()" class="flex items-center justify-center gap-2 px-4 py-3 rounded-2xl border-2 border-slate-300 bg-white text-slate-700 font-bold text-sm shadow-sm active:scale-95 transition">
+                    <i class="fa-solid fa-route"></i> 당일 동선
+                </button>
+            </div>
+        </div>
+    </div>
+
     <section id="home" class="hero-bg min-h-[65vh] flex items-center justify-center text-center px-4">
         <div class="animate-fade-in-up text-white">
             <div class="bg-white/95 backdrop-blur px-5 py-2.5 rounded-full inline-flex items-center gap-2.5 mb-6 border border-white/20 shadow-xl text-slate-800">
@@ -403,7 +416,7 @@
                         솔향수목원의 솔숲으로 오전을 열고, 주문진 해나비지역아동센터에서 현장의 돌봄을 둘러본 뒤 인문학 강의와 간담회로 오후를 이어갑니다. 아동 돌봄 현장에서 애쓰신 분들을 위한 재충전의 당일 여정입니다.
                     </p>
                     <p class="text-slate-600 leading-relaxed text-justify">
-                        기관방문 뒤 주문진남매식당에서 생선구이·대구탕으로 점심을 하고, 강릉시 평생학습관 소강당에서 강의 후 간담회(약 1시간)를 진행합니다. 이후 월화시장·허난설헌공원·오죽헌 가운데 한 곳을 둘러보고, 영덕대게횟집 회정식으로 하루를 마무리한 뒤 정선으로 돌아옵니다. 본 일정은 안내 초안이며 현지 사정에 따라 조율될 수 있습니다.
+                        기관방문 뒤 주문진남매식당에서 생선구이·대구탕으로 점심을 하고, 강릉시 평생학습관 소강당에서 강의 후 간담회(약 1시간)를 진행합니다. 이후 월화시장을 둘러보고, 영덕대게횟집 회정식으로 하루를 마무리한 뒤 정선으로 돌아옵니다. 본 일정은 안내 초안이며 현지 사정에 따라 조율될 수 있습니다.
                     </p>
                 </div>
             </div>
@@ -455,36 +468,20 @@
             </div>
 
             <div class="mb-4">
-                <h3 class="text-xl md:text-2xl font-bold text-slate-800 font-title">16:30 이후 · 택 1</h3>
-                <p class="text-sm text-slate-500 mt-1">월화시장 · 허난설헌공원 · 오죽헌 가운데 한 곳을 둘러본 뒤 석식으로 이동합니다.</p>
+                <h3 class="text-xl md:text-2xl font-bold text-slate-800 font-title">오후 탐방 · 월화시장</h3>
+                <p class="text-sm text-slate-500 mt-1">강의·간담회 뒤 월화거리·중앙시장 일원을 둘러본 다음 석식으로 이동합니다.</p>
             </div>
-            <div class="grid md:grid-cols-3 gap-6 mb-8">
-                <article class="rounded-[1.75rem] overflow-hidden border border-slate-100 shadow-sm bg-slate-50">
-                    <img src="assets/images/day1-wolhwa.jpg" alt="강릉 월화거리·중앙시장" class="w-full h-44 object-cover">
-                    <div class="p-5 space-y-2">
-                        <h4 class="text-lg font-black text-slate-800">월화시장</h4>
-                        <p class="text-sm text-slate-600 leading-relaxed">월화거리·중앙시장 일원. 강릉 시내를 거닐며 장터의 활기를 느끼는 선택입니다.</p>
-                    </div>
-                </article>
-                <article class="rounded-[1.75rem] overflow-hidden border border-slate-100 shadow-sm bg-slate-50">
-                    <img src="assets/images/day1-nanseolheon.jpg" alt="허균·허난설헌 기념공원" class="w-full h-44 object-cover">
-                    <div class="p-5 space-y-2">
-                        <h4 class="text-lg font-black text-slate-800">허난설헌공원</h4>
-                        <p class="text-sm text-slate-600 leading-relaxed">허균·허난설헌 기념공원. 생가터와 기념관에서 문향을 느끼는 선택입니다.</p>
-                    </div>
-                </article>
-                <article class="rounded-[1.75rem] overflow-hidden border border-slate-100 shadow-sm bg-slate-50">
-                    <img src="assets/images/day1-ojukheon.jpg" alt="오죽헌" class="w-full h-44 object-cover">
-                    <div class="p-5 space-y-2">
-                        <h4 class="text-lg font-black text-slate-800">오죽헌</h4>
-                        <p class="text-sm text-slate-600 leading-relaxed">신사임당·율곡 이이의 생가. 경포 내륙에서 강릉의 문기와 역사를 돌아보는 선택입니다.</p>
-                    </div>
-                </article>
-            </div>
+            <article class="rounded-[1.75rem] overflow-hidden border border-slate-100 shadow-sm bg-slate-50 mb-8">
+                <img src="assets/images/day1-wolhwa.jpg" alt="강릉 월화거리·중앙시장" class="w-full h-44 md:h-64 object-cover">
+                <div class="p-5 md:p-6 space-y-2">
+                    <h4 class="text-lg font-black text-slate-800">월화시장</h4>
+                    <p class="text-sm text-slate-600 leading-relaxed">월화거리·중앙시장 일원. 강릉 시내를 거닐며 장터의 활기를 느끼는 오후 탐방입니다.</p>
+                </div>
+            </article>
 
             <div class="bg-teal-50 border border-teal-100 rounded-2xl p-5 md:p-6 text-sm text-teal-900 leading-relaxed">
                 <i class="fa-solid fa-circle-info mr-1 text-teal-600"></i>
-                16:30 이후 방문지는 평생학습관(포남동)에서 이어지는 당일 동선에 맞춰 안내드립니다. 석식은 경포 영덕대게횟집(창해로 461) 회정식입니다.
+                평생학습관(포남동)에서 월화시장으로 이어진 뒤, 석식은 경포 영덕대게횟집(창해로 461) 회정식입니다.
             </div>
         </div>
     </section>
@@ -505,7 +502,7 @@
                         <div class="w-12 h-12 bg-sky-100 text-sky-600 rounded-full flex items-center justify-center text-2xl"><i class="fa-solid fa-bus"></i></div>
                         <div>
                             <h3 class="font-black text-xl text-slate-800">버스 당일 왕복</h3>
-                            <p class="text-sm font-bold text-slate-500">정선 ↔ 강릉(솔향수목원·주문진 해나비·남매식당·평생학습관·경포) ↔ 정선</p>
+                            <p class="text-sm font-bold text-slate-500">정선 ↔ 강릉(솔향수목원·주문진 해나비·남매식당·평생학습관·월화시장·경포) ↔ 정선</p>
                         </div>
                     </div>
                     <div class="grid md:grid-cols-2 gap-4">
@@ -522,7 +519,7 @@
                     </div>
                     <div class="bg-amber-50 border border-amber-100 rounded-2xl p-5 text-sm text-amber-800 leading-relaxed">
                         <i class="fa-solid fa-circle-info mr-1"></i>
-                        집결 장소·좌석 배정·기사님 연락처는 행사 임박 시 별도 안내드립니다. 출발 10분 전 탑승을 부탁드립니다.
+                        군청 차량지원으로 이동합니다. 집결 장소·좌석 배정은 행사 임박 시 별도 안내드립니다. 출발 10분 전 탑승을 부탁드립니다.
                     </div>
                 </div>
             </div>
@@ -541,15 +538,14 @@
                 <button onclick="filterMap('day2')" id="btn-map-day2" class="map-btn px-6 py-2 rounded-full text-sm font-bold bg-white border border-slate-200 text-slate-600 hover:bg-blue-50 transition-all">오후</button>
                 <button onclick="filterMap('day3')" id="btn-map-day3" class="map-btn px-6 py-2 rounded-full text-sm font-bold bg-white border border-slate-200 text-slate-600 hover:bg-green-50 transition-all">귀환</button>
             </div>
-            <p id="map-hint" class="text-center text-xs text-slate-500 mb-4 font-medium">전체 일정 — 정선에서 출발해 귀환까지 실제 도로 동선이 차례로 그려집니다</p>
+            <p id="map-hint" class="text-center text-xs text-slate-500 mb-4 font-medium">전체 일정 — 정선에서 출발해 월화시장을 거쳐 다시 정선으로 돌아오는 실제 도로 동선</p>
             <div id="map-wrap" class="max-w-5xl mx-auto border-8 border-slate-100 rounded-[2.5rem] shadow-xl overflow-hidden bg-white relative z-10">
                 <div id="map"></div>
                 <div id="map-leg"></div>
             </div>
             <div class="max-w-5xl mx-auto mt-6 flex flex-wrap justify-center gap-6 text-[11px] font-bold text-slate-500">
                 <div class="flex items-center gap-1.5"><span class="w-3 h-3 rounded-full bg-[#f97316]"></span>오전(정선→솔향수목원→해나비·남매식당)</div>
-                <div class="flex items-center gap-1.5"><span class="w-3 h-3 rounded-full bg-[#3b82f6]"></span>오후(평생학습관 강의→석식)</div>
-                <div class="flex items-center gap-1.5"><span class="w-3 h-3 rounded-full bg-[#64748b]"></span>16:30 이후 택 1 (월화시장·허난설헌공원·오죽헌)</div>
+                <div class="flex items-center gap-1.5"><span class="w-3 h-3 rounded-full bg-[#3b82f6]"></span>오후(평생학습관→월화시장→석식)</div>
                 <div class="flex items-center gap-1.5"><span class="w-3 h-3 rounded-full bg-[#22c55e]"></span>귀환(영덕대게횟집→정선)</div>
             </div>
         </div>
@@ -628,24 +624,11 @@
                         </div>
 
                         <div class="schedule-media">
-                            <div class="schedule-desc space-y-3">
-                                <p class="text-xs font-black text-indigo-600 tracking-widest">16:30 · 택 1</p>
-                                <h4 class="font-bold text-lg text-slate-800">오후 탐방</h4>
-                                <p class="text-sm text-slate-500 leading-relaxed">아래 세 곳 가운데 한 곳을 둘러본 뒤 석식으로 이동합니다. 당일 동선에 맞춰 안내드립니다.</p>
-                                <div class="grid sm:grid-cols-3 gap-3 pt-1">
-                                    <div class="rounded-xl overflow-hidden border border-slate-100 bg-slate-50">
-                                        <img src="assets/images/day1-wolhwa.jpg" alt="월화시장" class="w-full h-24 object-cover">
-                                        <p class="text-xs font-bold text-slate-700 p-2">월화시장</p>
-                                    </div>
-                                    <div class="rounded-xl overflow-hidden border border-slate-100 bg-slate-50">
-                                        <img src="assets/images/day1-nanseolheon.jpg" alt="허난설헌공원" class="w-full h-24 object-cover">
-                                        <p class="text-xs font-bold text-slate-700 p-2">허난설헌공원</p>
-                                    </div>
-                                    <div class="rounded-xl overflow-hidden border border-slate-100 bg-slate-50">
-                                        <img src="assets/images/day1-ojukheon.jpg" alt="오죽헌" class="w-full h-24 object-cover">
-                                        <p class="text-xs font-bold text-slate-700 p-2">오죽헌</p>
-                                    </div>
-                                </div>
+                            <img src="assets/images/day1-wolhwa.jpg" alt="월화시장" class="schedule-thumb">
+                            <div class="schedule-desc space-y-1">
+                                <p class="text-xs font-black text-indigo-600 tracking-widest">16:30</p>
+                                <h4 class="font-bold text-lg text-slate-800">오후 탐방 · 월화시장</h4>
+                                <p class="text-sm text-slate-500 leading-relaxed">월화거리·중앙시장 일원. 강릉 시내를 거닐며 장터의 활기를 둘러본 뒤 석식으로 이동합니다.</p>
                             </div>
                         </div>
 
@@ -745,7 +728,7 @@
                 <h2 class="text-3xl font-bold text-slate-800 font-title">🚨 비상 연락망</h2>
                 <p class="text-sm text-slate-500 mt-2">안전하고 편안한 당일 여행을 위해 투어메이커가 함께합니다.</p>
             </div>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-3xl mx-auto">
                 <div class="bg-slate-50 p-8 rounded-[2.5rem] border border-slate-100 flex flex-col items-center text-center group hover:bg-orange-50 transition-all">
                     <div class="w-16 h-16 bg-white rounded-2xl flex items-center justify-center mb-5 shadow-sm">
                         <i class="fa-solid fa-user-tie text-orange-600 text-2xl"></i>
@@ -761,14 +744,6 @@
                     <h4 class="font-bold text-xl text-slate-800">현장 지원</h4>
                     <p class="text-sm text-slate-500 mt-1 mb-5">일정 코디네이팅 및 비상 대기</p>
                     <a href="tel:010-4249-4026" class="bg-teal-600 text-white px-8 py-3 rounded-xl font-bold shadow-md hover:bg-teal-700 transition">조혁 이사: 010-4249-4026</a>
-                </div>
-                <div class="bg-slate-50 p-8 rounded-[2.5rem] border border-slate-100 flex flex-col items-center text-center group hover:bg-blue-50 transition-all">
-                    <div class="w-16 h-16 bg-white rounded-2xl flex items-center justify-center mb-5 shadow-sm">
-                        <i class="fa-solid fa-bus text-blue-600 text-2xl"></i>
-                    </div>
-                    <h4 class="font-bold text-xl text-slate-800">전일정 버스 기사</h4>
-                    <p class="text-sm text-slate-500 mt-1 mb-5">전 구간 버스 운행 및 이동 지원</p>
-                    <span class="bg-blue-100 text-blue-700 px-8 py-3 rounded-xl font-bold">가이드 · 기사 미정</span>
                 </div>
             </div>
         </div>
@@ -876,8 +851,8 @@
                                     <span class="time-note">소감 공유·현장 이야기 나눔 · 음료·다과 제공</span>
                                 </li>
                                 <li>
-                                    <span class="time-tag">16:30</span><span class="highlight">오후 탐방 (택 1)</span>
-                                    <span class="time-note">월화시장 또는 허난설헌공원 또는 오죽헌</span>
+                                    <span class="time-tag">16:30</span><span class="highlight">오후 탐방 · 월화시장</span>
+                                    <span class="time-note">월화거리·중앙시장 일원 · 시내 장터를 둘러본 뒤 석식 이동</span>
                                 </li>
                                 <li>
                                     <span class="time-tag">18:00</span><span class="highlight">석식 · 영덕대게횟집</span>
@@ -901,14 +876,13 @@
             </table>
         </div>
         <div class="print-notes">
-            <strong>■ 동선 한눈에</strong> 정선 → 솔향수목원 → 해나비지역아동센터(주문진) → 남매식당(중식) → 강릉시 평생학습관 소강당(강의·간담회) → 월화시장 또는 허난설헌공원 또는 오죽헌 → 영덕대게횟집 → 정선<br>
+            <strong>■ 동선 한눈에</strong> 정선 → 솔향수목원 → 해나비지역아동센터(주문진) → 남매식당(중식) → 강릉시 평생학습관 소강당(강의·간담회) → 월화시장 → 영덕대게횟집 → 정선<br>
             <strong>■ 기관방문</strong> 해나비지역아동센터 · 주문진읍 해안1길 14, 3층 · 11:00<br>
             <strong>■ 프로그램</strong> 김민섭 작가 인문학 강의·간담회 · 강릉시 평생학습관 소강당(강릉대로 454 · 033-660-3292)
         </div>
         <div class="print-footer flex flex-wrap justify-between items-center gap-x-3 gap-y-1 text-xs font-bold text-slate-700 print-contacts border-t border-slate-300">
             <span>대표 이재명 010-9443-7881</span>
             <span>현장 조혁 이사 010-4249-4026</span>
-            <span>가이드 · 기사 미정</span>
             <span class="flex items-center gap-2 font-bold text-gray-500">
                 <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgHfgIX70O5k6Anuo0UgALIdaG9jSga9auHu3uyz0uEirylGPAJnjN_qQbvEGMUvPqUQf_g9FMNUHRxlDcUBf4vZ3Mpy4TnA9WxbmzWYK11gt2zuy_Irl4wctNFjcjLyPo0GPXV792o_J7L9guRMuDfeC1gy7USwywjYbECZgzcsHybuGRRAXAnO1eNmP8/s320/logo.png" style="height: 18px;" alt="Tourmaker">
                 ※ 상기 일정은 현지 사정에 의하여 변동될 수 있습니다.
@@ -931,8 +905,10 @@
     </div>
 
     <script>
-        const TOUR_START = new Date('2026-10-24T00:00:00');
-        const TOUR_END = new Date('2026-10-24T23:59:59');
+        const TEST_DATE = "";
+        const EVENT_DAYS = { '2026-10-24': 'all' };
+        const TOUR_START_YMD = '2026-10-24';
+        const TOUR_END_YMD = '2026-10-24';
         const CHECK_KEY = 'tm_261024_gangneung_checklist';
         const MEMO_KEY = 'tm_261024_gangneung_memo';
         const CHECK_ITEMS = [
@@ -962,16 +938,45 @@
             if (navigator.share) navigator.share({ title: '정선군청 가족행복과 강릉 가이드북', url }).catch(()=>{});
             else navigator.clipboard.writeText(url).then(() => showToast('링크가 복사되었습니다.'));
         }
+        function getGuidebookToday() {
+            const q = new URLSearchParams(location.search).get('test_date');
+            if (q && /^\d{4}-\d{2}-\d{2}$/.test(q)) return q;
+            if (TEST_DATE) return TEST_DATE;
+            return new Intl.DateTimeFormat('en-CA', { timeZone: 'Asia/Seoul' }).format(new Date());
+        }
+        function ymdDiffDays(a, b) {
+            const [ay, am, ad] = a.split('-').map(Number);
+            const [by, bm, bd] = b.split('-').map(Number);
+            return Math.round((Date.UTC(ay, am - 1, ad) - Date.UTC(by, bm - 1, bd)) / 86400000);
+        }
+        function getTodayDayKey() {
+            return EVENT_DAYS[getGuidebookToday()] || null;
+        }
+        function goToTodaySchedule() {
+            document.getElementById('schedule')?.scrollIntoView({ behavior: 'smooth' });
+        }
+        function goToTodayRoute() {
+            if (typeof filterMap === 'function') filterMap(getTodayDayKey() || 'all');
+            document.getElementById('map-section')?.scrollIntoView({ behavior: 'smooth' });
+        }
+        function initEventDayUI() {
+            const bar = document.getElementById('event-day-bar');
+            if (!bar) return;
+            const isEventDay = !!getTodayDayKey();
+            bar.classList.toggle('hidden', !isEventDay);
+            document.body.classList.toggle('event-day', isEventDay);
+        }
         function updateDday() {
-            const today = new Date(); today.setHours(0,0,0,0);
-            const diff = Math.ceil((TOUR_START - today) / 86400000);
+            const today = getGuidebookToday();
+            const diff = ymdDiffDays(TOUR_START_YMD, today);
             const badge = document.getElementById('d-day-badge');
             badge.classList.remove('hidden');
             if (diff > 0) { badge.className = 'ml-1 bg-blue-600 text-white text-[10px] px-2.5 py-1 rounded-full font-bold animate-pulse'; badge.innerText = `D-${diff}`; }
-            else if (today <= TOUR_END) { badge.className = 'ml-1 bg-red-600 text-white text-[10px] px-2.5 py-1 rounded-full font-bold animate-pulse'; badge.innerText = '📍 당일 진행중'; }
+            else if (today <= TOUR_END_YMD) { badge.className = 'ml-1 bg-red-600 text-white text-[10px] px-2.5 py-1 rounded-full font-bold animate-pulse'; badge.innerText = '📍 당일 진행중'; }
             else { badge.className = 'ml-1 bg-slate-500 text-white text-[10px] px-2.5 py-1 rounded-full font-bold'; badge.innerText = '🏁 여정 종료'; }
         }
         updateDday();
+        initEventDayUI();
 
         function renderChecklist() {
             const c = document.getElementById('checklist-container');
@@ -1033,32 +1038,29 @@
         let activeBus = null;
         const osrmCache = {};
         const mapHints = {
-            all: '전체 일정 — 정선에서 출발해 평생학습관을 거쳐 다시 정선으로 돌아오는 실제 도로 동선',
+            all: '전체 일정 — 정선에서 출발해 월화시장을 거쳐 다시 정선으로 돌아오는 실제 도로 동선',
             day1: '오전 동선 — 정선 → 솔향수목원 → 해나비지역아동센터 → 주문진남매식당',
-            day2: '오후 동선 — 남매식당 → 평생학습관 소강당 강의·간담회 후 택 1 탐방 → 영덕대게횟집',
+            day2: '오후 동선 — 남매식당 → 평생학습관 소강당 강의·간담회 → 월화시장 → 영덕대게횟집',
             day3: '귀환 동선 — 영덕대게횟집 → 정선'
         };
         const spots = {
-            jeongseon: { coords: [37.3806, 128.6609], title: '정선', color: '#f97316', icon: '🚌', badge: '08:30 출발' },
+            jeongseon: { coords: [37.3806, 128.6609], title: '정선', color: '#f97316', icon: '🚌', badge: '출발' },
             solhyang: { coords: [37.6958, 128.8631], title: '솔향수목원', color: '#f97316', icon: '🌲' },
             haenabi: { coords: [37.8912, 128.8288], title: '해나비센터', color: '#f97316', icon: '🏫' },
             nammae: { coords: [37.8898, 128.8268], title: '남매식당', color: '#f97316', icon: '🍚' },
             lecture: { coords: [37.7732, 128.9132], title: '평생학습관', color: '#3b82f6', icon: '📖', badge: '강의·간담회' },
-            wolhwa: { coords: [37.7538, 128.8972], title: '월화시장', color: '#64748b', icon: '🛒', badge: '택 1' },
-            nanseolheon: { coords: [37.7910, 128.9140], title: '허난설헌공원', color: '#64748b', icon: '📜', badge: '택 1' },
-            ojukheon: { coords: [37.7792, 128.8778], title: '오죽헌', color: '#64748b', icon: '🏠', badge: '택 1' },
+            wolhwa: { coords: [37.7538, 128.8972], title: '월화시장', color: '#3b82f6', icon: '🛒', badge: '탐방' },
             hoe: { coords: [37.8020, 128.9115], title: '영덕대게횟집', color: '#3b82f6', icon: '🍽️', badge: '석식' }
         };
         const routes = {
             all: {
-                points: ['jeongseon', 'solhyang', 'haenabi', 'nammae', 'lecture', 'wolhwa', 'nanseolheon', 'ojukheon', 'hoe'],
+                points: ['jeongseon', 'solhyang', 'haenabi', 'nammae', 'lecture', 'wolhwa', 'hoe'],
                 maxZoom: 9,
                 lines: [
                     { pts: ['jeongseon', 'solhyang', 'haenabi', 'nammae'], color: '#f97316' },
-                    { pts: ['nammae', 'lecture', 'hoe'], color: '#3b82f6' },
+                    { pts: ['nammae', 'lecture', 'wolhwa', 'hoe'], color: '#3b82f6' },
                     { pts: ['hoe', 'jeongseon'], color: '#22c55e' }
-                ],
-                extrasAfter: { lecture: ['wolhwa', 'nanseolheon', 'ojukheon'] }
+                ]
             },
             day1: {
                 points: ['jeongseon', 'solhyang', 'haenabi', 'nammae'],
@@ -1066,10 +1068,9 @@
                 lines: [{ pts: ['jeongseon', 'solhyang', 'haenabi', 'nammae'], color: '#f97316' }]
             },
             day2: {
-                points: ['nammae', 'lecture', 'wolhwa', 'nanseolheon', 'ojukheon', 'hoe'],
+                points: ['nammae', 'lecture', 'wolhwa', 'hoe'],
                 maxZoom: 12,
-                lines: [{ pts: ['nammae', 'lecture', 'hoe'], color: '#3b82f6' }],
-                extrasAfter: { lecture: ['wolhwa', 'nanseolheon', 'ojukheon'] }
+                lines: [{ pts: ['nammae', 'lecture', 'wolhwa', 'hoe'], color: '#3b82f6' }]
             },
             day3: {
                 points: ['hoe', 'jeongseon'],
@@ -1296,7 +1297,6 @@
                 ]);
                 if (seq !== mapDrawSeq) return;
                 addPin(leg.to);
-                (routeData.extrasAfter && routeData.extrasAfter[leg.to] || []).forEach(addPin);
                 await new Promise(r => setTimeout(r, isMobileView() ? 280 : 140));
             }
             if (seq !== mapDrawSeq) return;
@@ -1315,17 +1315,15 @@
                 maxZoom: 19,
                 attribution: 'Tiles &copy; Esri'
             }).addTo(currentMap);
-            const startKey = initialKey || (isMobileView() ? 'day1' : 'all');
-            if (isMobileView() && !initialKey) {
-                document.querySelectorAll('.map-btn').forEach(btn => {
-                    btn.classList.remove('bg-slate-800', 'text-white');
-                    btn.classList.add('bg-white', 'text-slate-600');
-                });
-                const morning = document.getElementById('btn-map-day1');
-                if (morning) {
-                    morning.classList.remove('bg-white', 'text-slate-600');
-                    morning.classList.add('bg-slate-800', 'text-white');
-                }
+            const startKey = initialKey || getTodayDayKey() || (isMobileView() ? 'day1' : 'all');
+            document.querySelectorAll('.map-btn').forEach(btn => {
+                btn.classList.remove('bg-slate-800', 'text-white');
+                btn.classList.add('bg-white', 'text-slate-600');
+            });
+            const startBtn = document.getElementById('btn-map-' + startKey);
+            if (startBtn) {
+                startBtn.classList.remove('bg-white', 'text-slate-600');
+                startBtn.classList.add('bg-slate-800', 'text-white');
             }
             drawMap(startKey);
         }
